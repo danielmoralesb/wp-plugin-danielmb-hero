@@ -1,0 +1,4 @@
+// sass-lint:disable-all
+@mixin transition($type: all, $transition-time: 0.25s, $ease: ease) {
+  transition: $type $transition-time $ease;
+}

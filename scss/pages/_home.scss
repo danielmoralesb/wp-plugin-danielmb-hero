@@ -1,0 +1,399 @@
+@use "../abstracts" as *;
+@use "sass:math";
+
+.home-intro {
+  margin-top: $margin * 3;
+
+  @include min-screen("md") {
+    margin-top: 0;
+  }
+
+  p {
+    color: $text-color-light;
+    line-height: $line-height * 1.5;
+    text-align: center;
+
+    @include min-screen("lg") {
+      font-size: $font-size-lg;
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+.home-intro__header {
+  h2 {
+    color: $text-color-light;
+    font-family: $title-font;
+    font-size: $font-size-xl + 0.25;
+    font-weight: normal;
+    line-height: $line-height * 0.85;
+    margin-top: $margin * 1.25;
+    margin-bottom: $margin * 1.25;
+    text-align: center;
+
+    @include min-screen("md") {
+      margin-top: $margin * 1.5;
+    }
+
+    @include min-screen("lg") {
+      font-size: $font-size-xxl + 1;
+      margin-bottom: $margin * 2;
+    }
+  }
+}
+
+.shi {
+  &-desktop {
+    display: none;
+    margin: 0 auto;
+
+    @include min-screen("md") {
+      display: block;
+    }
+  }
+
+  &-mobile {
+    display: block;
+    margin: 0 auto;
+
+    @include min-screen("md") {
+      display: none;
+    }
+  }
+}
+
+.skills {
+  display: grid;
+  grid-gap: math.div($margin, 4);
+
+  @include min-screen("md") {
+    grid-template-columns: 50% 50%;
+  }
+
+  @include min-screen("xl") {
+    grid-template-columns: 25% 25% 25% 25%;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  p {
+    line-height: $line-height * 1.25;
+    margin-bottom: $margin * 2;
+    text-align: center;
+
+    @include min-screen("lg") {
+      font-size: $font-size-sm;
+    }
+  }
+
+  .btn {
+    width: auto;
+    margin: $margin * 2 auto;
+    grid-column: 1/-1;
+  }
+}
+
+.skills__box {
+  background-color: $brand-primary;
+  padding: $padding * 1.5 $padding $padding * 2.15 $padding;
+
+  @include min-screen("md") {
+    &--design {
+      h3 {
+        height: 3.4rem;
+      }
+    }
+    &--frameworks {
+      h3 {
+        height: 3.4rem;
+      }
+    }
+  }
+}
+
+.skills__logos {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  row-gap: $margin;
+  margin: 0 auto;
+
+  img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .skills__box--design & {
+    column-gap: $margin;
+    width: 80%;
+
+    @include min-screen("xl") {
+      width: 100%;
+    }
+
+    img {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .skills__box--pl & {
+    column-gap: math.div($margin, 2);
+    width: 50%;
+  }
+
+  .skills__box--cm & {
+    width: 75%;
+  }
+
+  .skills__box--frameworks & {
+    width: 49%;
+  }
+
+  .skills__box--versioncontrol & {
+    width: 40%;
+
+    img {
+      margin-top: auto;
+    }
+  }
+
+  .skills__box--ide & {
+    width: 55%;
+
+    @include min-screen("md") {
+      width: 60%;
+    }
+
+    @include min-screen("xl") {
+      width: 75%;
+    }
+  }
+
+  .skills__box--methodologies & {
+    display: block;
+    width: 75%;
+
+    img {
+      display: block;
+    }
+  }
+
+  .skills__box--taskrunner & {
+    width: 55%;
+
+    @include min-screen("lg") {
+      width: 30%;
+    }
+
+    @include min-screen("xl") {
+      width: 55%;
+    }
+  }
+}
+
+.capabilities {
+  h4 {
+    font-size: $font-size-xl;
+    margin-bottom: $margin * 1.5;
+
+    @include min-screen("md") {
+      margin-bottom: $margin;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.capabilities__box {
+  background-color: $brand-primary;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  position: relative;
+  margin-bottom: $margin;
+  padding: $padding * 3 0 $padding * 10;
+
+  @include min-screen("md") {
+    margin-bottom: $margin * 1.5;
+    padding: $padding;
+  }
+
+  @include min-screen("xl") {
+    min-height: 400px;
+  }
+}
+
+.capabilities__box--troubleshooting {
+  padding-bottom: calc(175px + 2rem);
+
+  &:before {
+    content: "";
+    background-image: url("#{$path-img}/backgrounds/bg-code-mobile@2x.jpg");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 175px;
+  }
+
+  @include min-screen("md") {
+    background-image: url("#{$path-img}/backgrounds/bg-code@2x.png");
+    background-position: center right -275px;
+    background-size: contain;
+    padding: $padding * 3 $padding;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  @include min-screen("lg") {
+    background-position: center right -100px;
+  }
+
+  @include min-screen("xl") {
+    background-position: center right;
+  }
+
+  p {
+    @include min-screen("md") {
+      width: 60%;
+    }
+
+    @include min-screen("lg") {
+      width: 50%;
+    }
+  }
+}
+
+.capabilities__box--designskills {
+  padding-bottom: calc(175px + 2rem);
+
+  &:before {
+    content: "";
+    background-image: url("#{$path-img}/backgrounds/bg-designs-mobile@2x.jpg");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 175px;
+  }
+
+  @include min-screen("md") {
+    background-image: url("#{$path-img}/backgrounds/bg-designs@2x.png");
+    background-position: center left -357px;
+    background-size: contain;
+    padding: $padding * 3 $padding;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  @include min-screen("lg") {
+    background-position: center left -150px;
+  }
+
+  @include min-screen("xl") {
+    background-position: center left -50px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  h4 {
+    text-align: right;
+
+    @include min-screen("md") {
+      text-align: left;
+      width: 60%;
+    }
+
+    @include min-screen("lg") {
+      width: 45%;
+    }
+
+    @include min-screen("xl") {
+      width: 55%;
+    }
+  }
+
+  p {
+    text-align: right;
+
+    @include min-screen("md") {
+      text-align: left;
+      width: 60%;
+    }
+
+    @include min-screen("lg") {
+      width: 45%;
+    }
+
+    @include min-screen("xl") {
+      width: 55%;
+    }
+  }
+}
+
+.capabilities__box--teamwork {
+  padding-bottom: calc(175px + 2rem);
+
+  &:before {
+    content: "";
+    background-image: url("#{$path-img}/backgrounds/bg-team-mobile@2x.jpg");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 175px;
+  }
+
+  @include min-screen("md") {
+    background-image: url("#{$path-img}/backgrounds/bg-team@2x.png");
+    background-position: center right -125px;
+    background-size: contain;
+    padding: $padding * 3 $padding;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  @include min-screen("lg") {
+    background-position: center right;
+  }
+
+  p {
+    @include min-screen("md") {
+      width: 60%;
+    }
+
+    @include min-screen("lg") {
+      width: 45%;
+    }
+
+    @include min-screen("xl") {
+      width: 55%;
+    }
+  }
+}

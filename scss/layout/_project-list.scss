@@ -1,0 +1,40 @@
+@use "../abstracts" as *;
+
+.project-list {
+  list-style-type: none;
+  padding: $padding * 2 0 0;
+  text-align: center;
+
+  @include min-screen("md") {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); // 2 columns on min-screen md
+    grid-gap: $padding * 0.25;
+  }
+
+  @include min-screen("lg") {
+    grid-template-columns: repeat(3, 1fr); // 3 columns on min-screen lg
+  }
+
+  li {
+    margin-bottom: $margin * 0.25;
+
+    @include min-screen("md") {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    background-color: $brand-primary;
+    color: $text-color-light;
+    display: block;
+    padding: $padding;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: $brand-secondary;
+      transform: scale(1.1);
+      @include dark-box-shadow;
+    }
+  }
+}

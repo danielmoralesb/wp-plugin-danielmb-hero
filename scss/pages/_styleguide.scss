@@ -1,0 +1,215 @@
+@use "../abstracts" as *;
+@use "sass:math";
+
+.main--styleguide {
+  h2 {
+    text-align: left;
+  }
+
+  .row {
+    &:not(:last-child) {
+      margin-bottom: $margin * 4;
+    }
+  }
+}
+
+.styleguide__title {
+  color: $text-color-light;
+  font-family: $body-font;
+  font-size: $font-size-sm + 0.2;
+  font-weight: $font-weight-black;
+  margin-bottom: $margin * 1.5;
+}
+
+.styleguide__subtitle {
+  color: $text-color-light;
+  font-family: $body-font;
+  font-size: $font-size-sm + 0.15;
+  font-weight: $font-weight-black;
+  margin-top: $margin * 1.5;
+  margin-bottom: math.div($margin, 1.5);
+}
+
+.styleguide__font-family {
+  color: $text-color-light;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.styleguide__font-weights {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    @include min-screen("md") {
+      margin-right: $margin * 2;
+    }
+  }
+}
+
+.styleguide__colors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @include min-screen("md") {
+    justify-content: flex-start;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: $margin * 2;
+  }
+}
+
+.styleguide__color {
+  margin-bottom: $margin * 2;
+
+  @include min-screen("md") {
+    margin-right: $margin;
+  }
+}
+
+.styleguide__color__box {
+  display: flex;
+  width: $padding * 6;
+  height: $padding * 6;
+  padding: $padding;
+
+  &.bg-color--black-pearl {
+    border: 1px solid $white;
+  }
+}
+
+.styleguide__color__hex {
+  margin-top: auto;
+
+  .bg-color--white & {
+    color: $text-color-dark;
+  }
+}
+
+.styleguide__color__variable-name {
+  font-weight: $font-weight-black;
+}
+
+.styleguide__btn-wrapper {
+  margin-bottom: $margin * 2;
+
+  @include min-screen("md") {
+    margin-right: $margin;
+  }
+}
+
+.styleguide__icon {
+  width: $padding * 1.25;
+  margin-bottom: math.div($margin, 2);
+
+  &:not(:last-child) {
+    margin-right: math.div($margin, 2);
+  }
+}
+
+.styleguide__logo {
+  margin-bottom: $margin * 1.5;
+
+  &:not(:last-child) {
+    margin-right: $margin * 1.5;
+  }
+}
+
+.styleguide__logos-tech {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.styleguide__logo-tech {
+  margin-bottom: math.div($margin, 2);
+
+  &:not(:last-child) {
+    margin-right: $margin * 1.5;
+  }
+}
+
+.styleguide__heros {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.styleguide__hero {
+  margin-bottom: $margin * 1.5;
+
+  &.hero {
+    &-daniel {
+      width: $padding * 10;
+    }
+
+    &-websites {
+      width: $padding * 10;
+    }
+
+    &-designs {
+      width: $padding * 10;
+    }
+  }
+
+  &:not(:last-child) {
+    margin-right: $margin * 1.5;
+  }
+}
+
+.styleguide__shis {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.styleguide__shi {
+  margin-bottom: $margin * 1.5;
+
+  &.shi {
+    &-desktop {
+      width: $padding * 20;
+    }
+
+    &-mobile {
+      width: $padding * 10;
+    }
+  }
+
+  &:not(:last-child) {
+    margin-right: $margin * 1.5;
+  }
+}
+
+.styleguide__bg {
+  width: 380px;
+  margin-bottom: $margin * 1.5;
+
+  &:last-child {
+    width: 207px;
+  }
+
+  &:not(:last-child) {
+    margin-right: $margin * 1.5;
+  }
+}
+
+.styleguide__bg-img {
+  width: 380px;
+  margin-bottom: $margin * 1.5;
+
+  &:not(:last-child) {
+    margin-right: $margin * 1.5;
+  }
+}
+
+.styleguide__section {
+  margin-bottom: $margin * 1.5;
+
+  &:not(:last-child) {
+    margin-right: $margin * 1.5;
+  }
+}

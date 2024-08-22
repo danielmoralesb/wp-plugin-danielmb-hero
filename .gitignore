@@ -1,0 +1,21 @@
+# Ignore node modules
+node_modules
+
+# Ignore temporary files
+*.tmp
+*.swp
+*.swo
+*.bak
+*.orig
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore other files
+*.zip
+*.tar.gz
+*.rar
+*.7z

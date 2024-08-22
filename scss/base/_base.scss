@@ -1,0 +1,246 @@
+@use "../abstracts" as *;
+@use "sass:math";
+
+::selection {
+  background-color: $brand-primary-alt;
+  color: $text-color-tertiary;
+}
+
+body {
+  line-height: $line-height;
+  font-family: $font-lato;
+  font-size: $font-size-text;
+  color: $text-color-light;
+  background-color: $black-pearl;
+}
+
+ol,
+ul {
+  margin: 0;
+  left: 0;
+}
+
+a {
+  @include transition($transition-time: 0.15s);
+}
+
+p {
+  line-height: $line-height * 1.25;
+  margin: math.div($padding, 2) 0 0;
+
+  @include min-screen("lg") {
+    line-height: $line-height * 1.6;
+  }
+
+  a {
+    color: $text-color-tertiary;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $body-font;
+  font-weight: $font-weight-black;
+  line-height: $line-height;
+  margin: 0 0 math.div($margin, 2);
+}
+
+h1 {
+  font-family: $title-font;
+  font-weight: normal;
+  margin-bottom: $margin * 1.25;
+  line-height: $line-height * 0.85;
+  font-size: $font-size-xl + 0.5;
+  text-align: center;
+
+  @include min-screen("md") {
+    text-align: left;
+  }
+
+  @include min-screen("lg") {
+    font-size: $font-size-xxl + 2;
+  }
+}
+
+h2 {
+  color: $text-color-tertiary;
+  font-family: $title-font-alt;
+  font-size: $font-size-xxl + 1;
+  font-weight: normal;
+  margin-top: $margin * 3;
+  text-align: center;
+
+  @include min-screen("md") {
+    font-size: $font-size-xxl + 2;
+  }
+
+  @include min-screen("lg") {
+    font-size: $font-size-xxl + 3;
+  }
+}
+
+h3 {
+  color: $text-color-tertiary;
+  font-size: $font-size-lg;
+  font-style: italic;
+  margin-bottom: $margin;
+}
+
+h4 {
+  font-size: $font-size-md;
+}
+
+h5 {
+  font-size: $font-size-md;
+}
+
+h6 {
+  font-size: $font-size-xs;
+}
+
+b,
+strong {
+  font-weight: $font-weight-bold;
+}
+
+blockquote {
+  position: relative;
+  background: $off-white;
+  padding: $padding $padding $padding $padding * 2;
+  margin: $padding 0;
+  z-index: 1;
+  &:before {
+    content: '"';
+    font-size: 8rem;
+    position: absolute;
+    z-index: 0;
+    top: $padding * 2;
+    left: $padding * 2;
+    color: $gray;
+    opacity: 0.25;
+  }
+  &:after {
+    content: "";
+    width: 1rem;
+    height: 100%;
+    background: $gray;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.visible {
+  display: block !important;
+}
+
+// TODO:
+// Figure out a way to turn this into a mixing and
+// loop through all the break points defined in the
+// variables
+.hidden {
+  display: none !important;
+  &--xs {
+    @include max-screen("xs") {
+      display: none !important;
+    }
+  }
+  &--sm {
+    @include max-screen("sm") {
+      display: none !important;
+    }
+  }
+  &--md {
+    @include max-screen("md") {
+      display: none !important;
+    }
+  }
+  &--lg {
+    @include max-screen("lg") {
+      display: none !important;
+    }
+  }
+}
+
+.block {
+  display: block;
+
+  &--xs {
+    @include min-screen("xs") {
+      display: block;
+    }
+  }
+  &--sm {
+    @include min-screen("sm") {
+      display: block;
+    }
+  }
+  &--md {
+    @include min-screen("md") {
+      display: block;
+    }
+  }
+  &--lg {
+    @include min-screen("lg") {
+      display: block;
+    }
+  }
+}
+
+.inline {
+  display: inline;
+
+  &--xs {
+    @include min-screen("xs") {
+      display: inline;
+    }
+  }
+  &--sm {
+    @include min-screen("sm") {
+      display: inline;
+    }
+  }
+  &--md {
+    @include min-screen("md") {
+      display: inline;
+    }
+  }
+  &--lg {
+    @include min-screen("lg") {
+      display: inline;
+    }
+  }
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.img-responsive {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.main {
+  padding-top: 80px;
+
+  @include min-screen("md") {
+    padding-top: 0;
+  }
+}
+
+.text-center {
+  text-align: center;
+}

@@ -1,0 +1,55 @@
+@use "../abstracts" as *;
+
+.font-family--abril {
+  font-family: $title-font;
+}
+
+.font-family--lato {
+  font-family: $body-font;
+}
+
+.font-family--allura {
+  font-family: $title-font-alt;
+}
+
+.body-font--black {
+  font-weight: $font-weight-black;
+}
+
+.body-font--black-italic {
+  font-style: italic;
+  font-weight: $font-weight-black;
+}
+
+.body-font--bold {
+  font-weight: $font-weight-bold;
+}
+
+.body-font--bold-italic {
+  font-style: italic;
+  font-weight: $font-weight-bold;
+}
+
+.body-font--italic {
+  font-style: italic;
+  font-weight: $font-weight-regular;
+}
+
+.body-font--light {
+  font-weight: $font-weight-light;
+}
+
+.body-font--light-italic {
+  font-style: italic;
+  font-weight: $font-weight-light;
+}
+
+.paragraph--display {
+  color: $text-color-tertiary;
+}
+
+@each $color, $hex in $colors {
+  .bg-color--#{"" + $color} {
+    background-color: $hex;
+  }
+}

@@ -1,0 +1,13 @@
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+@mixin img-responsive {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}

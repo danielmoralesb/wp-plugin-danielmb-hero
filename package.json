@@ -1,0 +1,28 @@
+{
+  "name": "wp-plugin-danielmb-hero",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss-dev": "sass --watch --update --style=expanded scss:css",
+    "scss-prod": "sass --no-source-map --style=compressed scss:css",
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "watch-dev": "npm run scss-dev && npm run start",
+    "build-dev": "npm run scss-dev && npm run build",
+    "build-prod": "npm run scss-prod && npm run build"
+  },
+  "keywords": [
+    "danielmb",
+    "hero",
+    "wordpress",
+    "plugin"
+  ],
+  "author": "Daniel Morales",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "^28.6.0",
+    "sass": "^1.77.8"
+  }
+}

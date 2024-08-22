@@ -1,0 +1,234 @@
+@use "../abstracts" as *;
+
+.logo {
+  &-codepen {
+    width: 125px;
+  }
+
+  &-github {
+    width: 71px;
+  }
+
+  &-dribbble {
+    width: 87px;
+  }
+
+  &-photoshop {
+    width: 138px;
+  }
+
+  &-illustrator {
+    width: 132px;
+  }
+
+  &-photoshop {
+    width: 138px;
+  }
+
+  &-xd {
+    width: 112px;
+  }
+
+  &-dreamweaver {
+    width: 97px;
+  }
+
+  &-figma {
+    width: 83px;
+  }
+
+  &-invision {
+    width: 99px;
+  }
+
+  &-zeplin {
+    width: 60px;
+  }
+
+  &-html5 {
+    width: 56px;
+  }
+
+  &-less {
+    width: 53px;
+  }
+
+  &-vanillajs {
+    width: 64px;
+  }
+
+  &-css3 {
+    width: 53px;
+  }
+
+  &-sass {
+    width: 77px;
+  }
+
+  &-liquid {
+    width: 43px;
+  }
+
+  &-dnn {
+    width: 54px;
+  }
+
+  &-wordpress {
+    width: 84px;
+  }
+
+  &-git {
+    width: 35px;
+  }
+
+  &-sitecore {
+    width: 79px;
+  }
+
+  &-jquery {
+    width: 60px;
+  }
+
+  &-sourcetree {
+    width: 78px;
+  }
+
+  &-aem {
+    width: 136px;
+  }
+
+  &-bootstrap {
+    width: 68px;
+  }
+
+  &-visualstudio {
+    width: 88px;
+  }
+
+  &-react {
+    width: 52px;
+  }
+
+  &-amp {
+    width: 43px;
+  }
+
+  &-vscode {
+    width: 60px;
+  }
+
+  &-angular {
+    width: 54px;
+  }
+
+  &-bem {
+    width: 66px;
+  }
+
+  &-jenkins {
+    width: 51px;
+  }
+
+  &-gulp {
+    width: 33px;
+  }
+}
+
+.hero {
+  &-home {
+    width: 80%;
+
+    @include min-screen("md") {
+      width: 300px;
+    }
+
+    @include min-screen("lg") {
+      width: 500px;
+    }
+
+    @include min-screen("xl") {
+      width: 637px;
+    }
+  }
+
+  &-websites {
+    width: 100%;
+
+    @include min-screen("md") {
+      width: 400px;
+    }
+
+    @include min-screen("lg") {
+      width: 500px;
+    }
+
+    @include min-screen("xl") {
+      width: 744px;
+    }
+  }
+
+  &-designs {
+    width: 100%;
+
+    @include min-screen("md") {
+      width: 350px;
+    }
+
+    @include min-screen("lg") {
+      width: 500px;
+    }
+
+    @include min-screen("xl") {
+      width: 664px;
+    }
+  }
+
+  &-casestudies {
+    width: 100%;
+
+    @include min-screen("md") {
+      width: 350px;
+    }
+
+    @include min-screen("lg") {
+      width: 500px;
+    }
+
+    @include min-screen("xl") {
+      width: 664px;
+    }
+  }
+}
+
+.shi {
+  &-desktop {
+    @include min-screen("md") {
+      width: 500px;
+    }
+    @include min-screen("lg") {
+      width: 800px;
+    }
+  }
+
+  &-mobile {
+    width: 220px;
+  }
+}
+
+.section {
+  &-hpp {
+    width: 494px;
+  }
+
+  &-walpeco {
+    width: 494px;
+  }
+
+  &-noahsark {
+    width: 494px;
+  }
+
+  &-nrt {
+    width: 494px;
+  }
+}

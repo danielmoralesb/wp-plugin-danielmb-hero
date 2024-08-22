@@ -1,0 +1,413 @@
+@use "../abstracts" as *;
+@use "sass:math";
+
+.project {
+  margin-bottom: $margin;
+  text-align: center;
+
+  @include min-screen("md") {
+    background-color: $brand-primary;
+    margin-bottom: $margin * 1.5;
+    position: relative;
+    text-align: left;
+
+    &:before {
+      content: "";
+      background: linear-gradient(25deg, $black -5%, transparent 55%);
+      clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
+      display: block;
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+    }
+
+    &.project--list {
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  @include min-screen("lg") {
+    &:before {
+      background: linear-gradient(20deg, $black -12%, transparent 48%);
+    }
+  }
+
+  &.project--list {
+    overflow: hidden;
+    margin-top: $margin * 2;
+  }
+}
+
+.project__inner {
+  background-color: $brand-primary;
+  padding: $padding * 1.5 0 0;
+
+  @include min-screen("md") {
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 1fr 1fr fit-content(100%);
+    column-gap: $margin;
+    padding: 0;
+  }
+
+  .project--list & {
+    counter-reset: section;
+
+    @include min-screen("md") {
+      display: block;
+    }
+  }
+}
+
+.project__inner__inner {
+  @include min-screen("md") {
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 1fr 1fr fit-content(100%);
+    column-gap: $margin;
+    padding: 0;
+  }
+}
+
+.project__title {
+  @include min-screen("md") {
+    margin-top: $margin * 3;
+
+    .project--list & {
+      margin-top: 0;
+      padding-top: $padding * 3;
+    }
+  }
+
+  &.project__title--hassubitle {
+    @include min-screen("md") {
+      display: flex;
+    }
+  }
+}
+
+.project__subtitle {
+  display: block;
+
+  @include min-screen("md") {
+    display: flex;
+    align-items: center;
+  }
+}
+.project__subtitle__text {
+  color: $text-color-light;
+  font-weight: $font-weight-light;
+  font-size: $font-size-md + 0.25;
+}
+
+.project__pipe {
+  display: none;
+
+  @include min-screen("md") {
+    background-color: $text-color-light;
+    display: block;
+    height: 2px;
+    width: 41px;
+    transform: rotate(102deg);
+  }
+}
+
+.project__date {
+  font-weight: $font-weight-light;
+  margin-bottom: $margin * 1.5;
+
+  @include min-screen("md") {
+    margin-bottom: $margin;
+  }
+}
+
+.project__description {
+  margin-bottom: $margin * 1.75;
+  padding-left: $padding;
+  padding-right: $padding;
+
+  @include min-screen("md") {
+    padding: 0;
+
+    .designs-page & {
+      margin-bottom: $margin * 5;
+    }
+  }
+}
+
+.project__link {
+  cursor: pointer;
+  margin-bottom: $margin * 2;
+
+  .show .project__inner & {
+    display: none;
+  }
+
+  .project__content & {
+    text-align: center;
+
+    @include min-screen("md") {
+      text-align: left;
+    }
+  }
+}
+
+.project__image {
+  @include min-screen("md") {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: -$margin;
+
+    .project--list & {
+      display: block;
+    }
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+
+    @include min-screen("md") {
+      margin-top: auto;
+      width: 400px;
+      z-index: 1;
+    }
+  }
+}
+
+.project__figure {
+  .show & {
+    padding-bottom: $padding * 3;
+  }
+}
+
+.project__imgtag {
+  @include min-screen("md") {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+
+    img {
+      position: relative;
+      z-index: 2;
+    }
+
+    &:before {
+      content: "";
+      background: linear-gradient(25deg, $black -5%, transparent 55%);
+      clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0%;
+      top: 0;
+    }
+  }
+}
+
+.project__figcaption {
+  color: $text-color-gray-light;
+  font-weight: $font-weight-light;
+  font-size: $font-size-sm;
+  display: none;
+  margin-top: math.div($margin, 2);
+  text-align: center;
+
+  .show & {
+    display: block;
+  }
+
+  @include min-screen("md") {
+    text-align: left;
+  }
+
+  @include min-screen("lg") {
+    text-align: right;
+  }
+}
+
+.project__content {
+  background-color: $brand-primary;
+  padding: 0 $padding $padding;
+  opacity: 0;
+  height: 0;
+  transition: all 0.3s ease-in-out;
+
+  .show & {
+    opacity: 1;
+    height: 100%;
+  }
+
+  @include min-screen("md") {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  h4 {
+    font-size: $font-size-lg;
+    margin-bottom: $margin;
+    margin-left: 8px;
+    position: relative;
+    text-align: left;
+
+    &::before {
+      counter-increment: section;
+      content: counter(section);
+      font-size: $font-size-lg;
+      font-weight: $font-weight-black;
+      margin-right: $margin;
+      padding: math.div($padding, 2) $padding;
+      transform: skew(45deg);
+      position: relative;
+      z-index: 2;
+
+      @include min-screen("md") {
+        font-size: 22.8596px;
+        padding: 9.525px 19.05px;
+      }
+    }
+
+    &::after {
+      background-color: $brand-secondary;
+      content: "";
+      display: block;
+      height: 44px;
+      width: 48px;
+      transform: skew(160deg);
+      position: absolute;
+      left: 0;
+      top: -10px;
+      z-index: 1;
+
+      @include min-screen("md") {
+        height: 46px;
+        width: 52px;
+      }
+
+      @include min-screen("md") {
+        height: 52px;
+      }
+    }
+  }
+
+  p {
+    margin-bottom: $margin;
+    text-align: left;
+  }
+}
+
+.project__case-section {
+  border-top: 2px solid $brand-secondary;
+  padding: $padding * 2 0;
+
+  &:last-of-type {
+    border-top: none;
+    padding: $padding * 2 0 0 0;
+  }
+}
+
+.project__case-section__inner {
+  @include min-screen("md") {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+.project__case-section__column {
+  @include min-screen("md") {
+    flex: 0 0 48%;
+  }
+}
+
+.project__case-skills {
+  background-color: $brand-secondary;
+  padding: $padding * 1.5 $padding * 2;
+  margin-bottom: $margin;
+
+  @include min-screen("md") {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  h5 {
+    font-size: $font-size-md + 0.1;
+    margin-bottom: $margin * 1.5;
+  }
+
+  ul {
+    padding-left: 0;
+
+    @include min-screen("md") {
+      padding-left: $padding;
+    }
+
+    li {
+      font-size: $font-size-sm + 0.1;
+      margin-bottom: math.div($margin, 2);
+      text-align: left;
+    }
+  }
+}
+
+.project__case-skills__column {
+  @include min-screen("md") {
+    flex: 0 0 60%;
+
+    &:last-child {
+      flex-basis: 40%;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.project__case-section__image {
+  display: block;
+  max-width: 100%;
+  width: 80%;
+  height: auto;
+  margin: $margin auto $margin * 2;
+
+  @include min-screen("md") {
+    margin-bottom: 0;
+    width: 70%;
+  }
+
+  &.project__case-section__image--sm {
+    width: 50%;
+
+    @include min-screen("md") {
+      width: 40%;
+
+      .project__case-section__column & {
+        width: 30%;
+      }
+
+      .project__case-section__column:last-child & {
+        width: 40%;
+      }
+    }
+  }
+
+  &.project__case-section__image--lg {
+    @include min-screen("md") {
+      width: 100%;
+    }
+  }
+
+  &.project__case-section__image--skills {
+    margin: $margin * 2 auto 0;
+    width: 50%;
+
+    @include min-screen("md") {
+      margin: 0 $margin * 3 0 0;
+    }
+  }
+}

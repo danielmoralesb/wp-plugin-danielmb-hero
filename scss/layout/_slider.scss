@@ -1,0 +1,63 @@
+@use "../abstracts" as *;
+
+.slider-text {
+  text-align: center;
+
+  h5 {
+    font-size: $font-size-lg + 0.15;
+    margin-bottom: $margin * 2;
+  }
+
+  q {
+    display: block;
+    font-size: $font-size-md + 0.25;
+    line-height: $line-height * 1.5;
+    margin-bottom: $margin * 1.5;
+
+    &:before,
+    &:after {
+      font-family: $title-font;
+      font-size: $font-size-xl;
+    }
+  }
+}
+
+.slider-text__inner {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+
+  @include min-screen("md") {
+    min-height: 250px;
+  }
+
+  &.show {
+    opacity: 1;
+  }
+}
+
+.slider-text__dots {
+  button {
+    background: none;
+    border: none;
+    display: inline-block;
+    padding: 0;
+    zoom: 1;
+
+    &.active {
+      span {
+        background-color: $brand-tertiary;
+      }
+    }
+
+    span {
+      background-color: $brand-primary;
+      display: block;
+      width: 10px;
+      height: 10px;
+      margin: 5px 7px;
+      visibility: visible;
+      transition: opacity 0.2s ease;
+      border-radius: 50%;
+    }
+  }
+}

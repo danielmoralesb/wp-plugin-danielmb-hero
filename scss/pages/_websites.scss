@@ -1,0 +1,15 @@
+@use "../abstracts" as *;
+
+.hero {
+  p {
+    @include min-screen("md") {
+      max-width: 90%;
+    }
+    @include min-screen("lg") {
+      max-width: 70%;
+    }
+    @include min-screen("xl") {
+      max-width: 60%;
+    }
+  }
+}

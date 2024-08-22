@@ -1,0 +1,308 @@
+@use "../abstracts" as *;
+@use "sass:math";
+
+.btn {
+  border: none;
+  background: none;
+  color: $text-color-light;
+  font-weight: $font-weight-black;
+  padding: $padding * 0.75 $padding;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  @include transition($transition-time: 0.15s);
+
+  @include min-screen("md") {
+    padding: $padding $padding * 1.25;
+  }
+
+  &--primary {
+    &:before {
+      background-color: $brand-primary;
+      box-shadow: 0 math.div($padding, 2) 0 0 $brand-secondary;
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) skew(-20deg);
+      z-index: -1;
+      @include transition(all, 0.5s, ease);
+    }
+
+    &:hover {
+      color: rgba($text-color-light, 0.75);
+
+      &:before {
+        background-color: $brand-primary-alt;
+      }
+    }
+
+    &.hero__link {
+      font-size: $font-size-md;
+      font-weight: $font-weight-black;
+      @include transition($transition-time: 0.15s);
+      text-indent: 0;
+
+      &:hover {
+        color: rgba($text-color-light, 0.75);
+      }
+    }
+  }
+
+  &--secondary {
+    color: $text-color-tertiary;
+
+    &:before {
+      border: 1px solid $brand-tertiary;
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) skew(-20deg);
+      z-index: -1;
+      @include transition(all, 0.5s, ease);
+
+      @include min-screen("lg") {
+        border-width: 3px;
+      }
+    }
+
+    &:hover {
+      color: rgba($text-color-tertiary, 0.75);
+
+      &:before {
+        border-color: rgba($text-color-tertiary, 0.75);
+      }
+    }
+
+    &.footer__link {
+      font-size: $font-size-md;
+      font-weight: $font-weight-black;
+      padding: $padding * 0.75 $padding;
+      @include transition($transition-time: 0.15s);
+      text-indent: 0;
+
+      &:hover {
+        color: rgba($text-color-tertiary, 0.75);
+      }
+    }
+  }
+
+  &--icon {
+    background-position: center right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: $padding * 1.5;
+    padding-left: $padding * 1.5;
+
+    &:after {
+      content: "";
+      background-repeat: no-repeat;
+      display: block;
+      margin-left: math.div($margin, 2);
+    }
+
+    &:hover {
+      &:after {
+        opacity: 0.75;
+      }
+    }
+  }
+
+  &--icon--plus {
+    &:after {
+      background-image: url("#{$path-img}/icons/icon-plus.svg");
+      background-size: 14px auto;
+      height: 14px;
+      width: 14px;
+    }
+  }
+
+  &--icon--resume {
+    padding-top: $padding * 0.9215;
+    padding-bottom: $padding * 0.9215;
+
+    @include min-screen("md") {
+      justify-content: flex-start;
+    }
+
+    &:after {
+      background-image: url("#{$path-img}/icons/icon-resume.svg");
+      background-size: 17px auto;
+      height: 22px;
+      width: 17px;
+    }
+  }
+
+  &--icon--resume-gold {
+    padding-top: $padding * 0.7;
+    padding-bottom: $padding * 0.7;
+
+    @include min-screen("md") {
+      justify-content: flex-start;
+    }
+
+    @include min-screen("lg") {
+      padding-top: $padding * 0.9215;
+      padding-bottom: $padding * 0.9215;
+    }
+
+    &:after {
+      background-image: url("#{$path-img}/icons/icon-resume-gold.svg");
+      background-size: 17px auto;
+      height: 22px;
+      width: 17px;
+    }
+  }
+
+  &--link {
+    color: $text-color-tertiary;
+    font-weight: $font-weight-regular;
+    padding: 0;
+    text-decoration: underline;
+    text-transform: none;
+  }
+}
+
+a {
+  &.btn {
+    color: $text-color-light;
+    font-weight: $font-weight-black;
+    display: inline-block;
+    padding: $padding $padding * 1.25;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    @include transition($transition-time: 0.15s);
+
+    &--primary {
+      &:before {
+        background-color: $brand-primary;
+        box-shadow: 0 math.div($padding, 2) 0 0 $brand-secondary;
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) skew(-20deg);
+        z-index: -1;
+      }
+
+      &:hover {
+        color: rgba($text-color-light, 0.75);
+
+        &:before {
+          background-color: $brand-primary-alt;
+        }
+      }
+    }
+
+    &--secondary {
+      color: $text-color-tertiary;
+
+      &:before {
+        border: 1px solid $brand-tertiary;
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) skew(-20deg);
+        z-index: -1;
+
+        @include min-screen("lg") {
+          border-width: 3px;
+        }
+      }
+
+      &:hover {
+        color: rgba($text-color-tertiary, 0.75);
+
+        &:before {
+          border-color: rgba($text-color-tertiary, 0.75);
+        }
+      }
+    }
+
+    &--icon {
+      background-position: center right;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding-right: $padding * 1.15;
+      padding-left: $padding * 1.15;
+
+      @include min-screen("lg") {
+        padding-right: $padding * 1.5;
+        padding-left: $padding * 1.5;
+      }
+
+      &:after {
+        content: "";
+        background-repeat: no-repeat;
+        display: block;
+        margin-left: math.div($margin, 2);
+      }
+
+      &:hover {
+        &:after {
+          opacity: 0.75;
+        }
+      }
+    }
+
+    &--icon--plus {
+      &:after {
+        background-image: url("#{$path-img}/icons/icon-plus.svg");
+        background-size: 14px auto;
+        height: 14px;
+        width: 14px;
+      }
+    }
+
+    &--icon--resume {
+      padding-top: $padding * 0.9215;
+      padding-bottom: $padding * 0.9215;
+
+      @include min-screen("md") {
+        justify-content: flex-start;
+      }
+
+      &:after {
+        background-image: url("#{$path-img}/icons/icon-resume.svg");
+        background-size: 17px auto;
+        height: 22px;
+        width: 17px;
+      }
+    }
+
+    &--icon--resume-gold {
+      padding-top: $padding * 0.7;
+      padding-bottom: $padding * 0.7;
+
+      @include min-screen("md") {
+        justify-content: flex-start;
+      }
+
+      @include min-screen("lg") {
+        padding-top: $padding * 0.9215;
+        padding-bottom: $padding * 0.9215;
+      }
+
+      &:after {
+        background-image: url("#{$path-img}/icons/icon-resume-gold.svg");
+        background-size: 17px auto;
+        height: 22px;
+        width: 17px;
+      }
+    }
+  }
+}

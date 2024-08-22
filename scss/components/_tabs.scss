@@ -1,0 +1,59 @@
+@use "../abstracts" as *;
+@use "sass:math";
+
+.tabs {
+  .tabs__header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $margin * 2;
+
+    .main--styleguide & {
+      margin-bottom: $margin * 4;
+    }
+
+    @include min-screen("md") {
+      flex-direction: row;
+    }
+  }
+
+  .tabs__control {
+    background-color: $brand-secondary;
+    cursor: pointer;
+    display: flex;
+    font-style: italic;
+    justify-content: center;
+    align-items: center;
+    padding: math.div($padding, 1.75);
+    @include transition($transition-time: 0.15s);
+
+    @include min-screen("md") {
+      flex: 1 0 auto;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: math.div($margin, 3);
+
+      @include min-screen("md") {
+        margin-right: math.div($margin, 6);
+        margin-bottom: 0;
+      }
+    }
+
+    &--active {
+      background-color: $brand-primary;
+      font-weight: $font-weight-black;
+    }
+
+    &:hover {
+      background-color: $brand-primary-alt;
+    }
+  }
+
+  .tabs__content {
+    display: none;
+
+    &--active {
+      display: block;
+    }
+  }
+}
