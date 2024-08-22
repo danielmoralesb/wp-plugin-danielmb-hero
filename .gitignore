@@ -1,5 +1,23 @@
-# Ignore node modules
-node_modules
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore log files and databases
+*.log
+*.sql
+*.sqlite
+
+# Ignore node modules and dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Ignore compiled CSS and JS files
+*.css.map
+*.js.map
+
+# Ignore build directories
+build/
 
 # Ignore temporary files
 *.tmp
