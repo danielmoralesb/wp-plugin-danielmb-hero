@@ -1,7 +1,26 @@
 @use "../abstracts" as *;
 
 .form-container {
-  background-color: $white;
+  background-color: $black-pearl;
+  padding: $padding * 2;
+}
+
+.form-header {
+  display: flex;
+  border-bottom: 1px solid $brand-primary-light;
+  margin-bottom: $margin * 2;
+  padding: $padding 0;
+
+  img {
+    width: 150px;
+  }
+
+  h1 {
+    color: $text-color-light;
+    font-family: $body-font;
+    font-size: $font-size-lg;
+    margin: 0;
+  }
 }
 
 .form-group {
@@ -12,7 +31,25 @@
     margin-bottom: 5px;
   }
 
+  .rich-text {
+    background-color: $black-pearl;
+    border: 1px solid $brand-primary-light;
+    $padding: $padding;
+  }
+
   button {
-    flex-direction: column;
+    border: 1px solid $brand-tertiary;
+    background: none;
+    color: $text-color-tertiary;
+    font-weight: $font-weight-black;
+    padding: $padding * 0.75 $padding;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    @include transition($transition-time: 0.15s);
+
+    @include min-screen("md") {
+      padding: $padding $padding * 1.25;
+    }
   }
 }
