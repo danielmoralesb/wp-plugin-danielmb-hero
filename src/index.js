@@ -100,6 +100,10 @@ registerBlockType("hero-block/hero-block", {
 
     return (
       <div className="form-container">
+        <header className="form-header">
+          <img class="form-logo" src="/images/daniel-morales-logo.svg" alt="" />
+          <h1>Hero Block</h1>
+        </header>
         <div className="form-group">
           <label htmlFor="heroTitleLines">
             Does the Hero Title have multiple lines?
